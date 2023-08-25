@@ -1,11 +1,9 @@
-# Data Expressions
+# Intro
 
 ## Purpose
 
 Data is misunderstood by healthcare, tech, and management. 
-Data visualization is one way to capture and display multi-dimensional data, which can be distilled as information for the viewers.
-
-The purpose is to ultimately showcase nuances of data using information display technique such as data visualization. 
+Data visualization is one way to capture and display multi-dimensional data, which can be distilled as information for the viewers. The purpose of this website is to ultimately showcase nuances of data using information display technique such as data visualization. 
 
 ## About Myself
 
