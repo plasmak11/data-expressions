@@ -1,3 +1,0 @@
-# Polars dataframe
-
-Coming soon.
