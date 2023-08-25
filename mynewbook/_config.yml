@@ -3,6 +3,7 @@
 
 title: Data Expressions
 author: Jung Hoon Son
+copyright: "2023"
 logo: data_expressions_logo.svg
 
 # Force re-execution of notebooks on each build.
@@ -26,3 +27,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# Spinx options
+sphinx:
+    config:
+        html_theme: quantecon_book_theme
