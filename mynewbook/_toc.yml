@@ -9,7 +9,6 @@ parts:
   - file: step-by-step/altair
   - file: step-by-step/plotly-express
 
-
-# - caption: Complex Charts
-#   numbered: true
-#   chapters:
+- caption: References
+  chapters:
+  - file: references.md
