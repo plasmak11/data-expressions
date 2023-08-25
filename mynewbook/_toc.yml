@@ -9,8 +9,10 @@ parts:
   maxdepth: 3
   chapters:
   - file: step-by-step/altair
+  
   - file: step-by-step/plotly-express
 
+parts:
 - caption: Data Poetry
   maxdepth: 3
   chapters:
