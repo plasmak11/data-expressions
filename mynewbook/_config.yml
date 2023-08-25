@@ -31,6 +31,6 @@ html:
 # Spinx options
 # These are very specific to Sphinx, pydata_sphinx_theme
 # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/install.html
-sphinx:
-    config:
-        html_theme: "pydata_sphinx_theme"
+# sphinx:
+#     config:
+#         html_theme: "pydata_sphinx_theme"
