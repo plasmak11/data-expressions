@@ -11,7 +11,7 @@ parts:
   - file: step-by-step/altair
   - file: step-by-step/plotly-express
 
-- caption: Polars
+- caption: Data Poetry
   maxdepth: 3
   chapters:
   - file: polars/polars.md
