@@ -11,7 +11,6 @@ root: intro
 #   - file: altair/section
 parts:
 - caption: Beginner Guides
-  numbered: true
   chapters:
   - file: step-by-step/altair
   - file: step-by-step/plotly
