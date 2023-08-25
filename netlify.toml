@@ -3,5 +3,5 @@ publish = "site"
 command = """
 pip3 install -q poetry &&
 poetry install -v &&
-poetry run jupyter-book build
+poetry run jupyter-book build mynewbook/
 """
