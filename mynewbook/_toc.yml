@@ -5,5 +5,18 @@ format: jb-book
 root: intro
 # defaults:  # The defaults key will be applied to all chapters and sub-sections
 #   titlesonly: True
-chapters:
-- file: altair
+# chapters:
+# - file: altair
+#   sections:
+#   - file: altair/section
+parts:
+- caption: Beginner Guides
+  numbered: true
+  chapters:
+  - file: altair
+  - file: plotly
+
+
+# - caption: Complex Charts
+#   numbered: true
+#   chapters:
