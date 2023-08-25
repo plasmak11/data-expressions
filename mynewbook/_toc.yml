@@ -13,8 +13,8 @@ parts:
 - caption: Beginner Guides
   numbered: true
   chapters:
-  - file: altair
-  - file: plotly
+  - file: step-by-step/altair
+  - file: step-by-step/plotly
 
 
 # - caption: Complex Charts
