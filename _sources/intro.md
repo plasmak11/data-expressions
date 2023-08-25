@@ -1,27 +1,5 @@
-## Learn MyST
+# Data Expressions
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+# About Myself
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
-
-## Sample Roles and Directives
-
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
-
-Here is a "note" directive:
-
-```{note}
-Here is a note
-```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
+My name is Jung Hoon Son. I have a passion for information display, as most modern data science mechanisms come short when it comes to expressing and capturing information.
