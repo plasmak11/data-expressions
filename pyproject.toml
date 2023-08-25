@@ -6,9 +6,10 @@ authors = ["Jung Hoon Son <junghoonson@protonmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.8"
+python = "^3.10"
 polars = "^0.18.15"
 jupyter-book = "^0.15.1"
+ghp-import = "^2.1.0"
 
 
 [build-system]
