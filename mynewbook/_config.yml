@@ -3,7 +3,7 @@
 
 title: Data Expressions
 author: Jung Hoon Son
-logo: data_expressions_logo.png
+logo: data_expressions_logo.svg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
