@@ -13,7 +13,7 @@ parts:
 - caption: Beginner Guides
   chapters:
   - file: step-by-step/altair
-  - file: step-by-step/plotly
+  - file: step-by-step/plotly-express
 
 
 # - caption: Complex Charts
