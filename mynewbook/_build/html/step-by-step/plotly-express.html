@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Plotly &#8212; Data Expressions</title>
+    <title>2. Plotly &#8212; Data Expressions</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'step-by-step/plotly-express';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Polars dataframe" href="../data-poetry/polars.html" />
-    <link rel="prev" title="Altair" href="altair.html" />
+    <link rel="next" title="4. Polars dataframe" href="../data-poetry/polars.html" />
+    <link rel="prev" title="1.5. Scatter Chart" href="altair-2-scatter-chart.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,13 +158,17 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step-by-step Guides</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="altair.html">Altair</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotly</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="altair-intro.html">1. Altair</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="altair-1-bar-chart.html">1.4. Bar Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair-2-scatter-chart.html">1.5. Scatter Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Plotly</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Poetry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../data-poetry/polars.html">Polars dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-poetry/polars.html">4. Polars dataframe</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -362,12 +366,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plotly</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Plotly</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">2.1. Background</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart">Bar chart</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-graph">Bar Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart">3. Bar chart</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-graph">3.1. Bar Graph</a></li>
 </ul>
 </li>
 </ul>
@@ -383,9 +387,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plotly">
-<h1>Plotly<a class="headerlink" href="#plotly" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Plotly<a class="headerlink" href="#plotly" title="Permalink to this heading">#</a></h1>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>Plotly was founded in 2012, by Canadian software engineers, burst into the scene at PyCon in 2013. The original differentiator was</p>
 <p>Plotly is very popular among new python users.</p>
 <div class="admonition note">
@@ -395,7 +399,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="bar-chart">
-<h1>Bar chart<a class="headerlink" href="#bar-chart" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Bar chart<a class="headerlink" href="#bar-chart" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
@@ -404,7 +408,7 @@ document.write(`
 </div>
 </div>
 <section id="bar-graph">
-<h2>Bar Graph<a class="headerlink" href="#bar-graph" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Bar Graph<a class="headerlink" href="#bar-graph" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tips</span><span class="p">()</span>
@@ -495,12 +499,12 @@ if (outputEl) {{
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="altair.html"
+       href="altair-2-scatter-chart.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Altair</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Scatter Chart</p>
       </div>
     </a>
     <a class="right-next"
@@ -508,7 +512,7 @@ if (outputEl) {{
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Polars dataframe</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Polars dataframe</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -530,12 +534,12 @@ if (outputEl) {{
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plotly</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Plotly</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">2.1. Background</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart">Bar chart</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-graph">Bar Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart">3. Bar chart</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-graph">3.1. Bar Graph</a></li>
 </ul>
 </li>
 </ul>
