@@ -8,7 +8,10 @@ parts:
 - caption: Step-by-step Guides
   maxdepth: 3
   chapters:
-  - file: step-by-step/altair.ipynb
+  - file: step-by-step/altair-intro.ipynb
+    sections:
+      - file: step-by-step/altair-1-bar-chart.ipynb
+      - file: step-by-step/altair-2-scatter-chart.ipynb
   - file: step-by-step/plotly-express.ipynb
 - caption: Data Poetry
   maxdepth: 3
