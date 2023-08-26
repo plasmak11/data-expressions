@@ -6,7 +6,6 @@ root: intro
 
 parts:
 - caption: Step-by-step Guides
-  numbered: true 
   chapters:
   - file: step-by-step/altair-intro.ipynb
     sections:
@@ -14,7 +13,6 @@ parts:
       - file: step-by-step/altair-2-scatter-chart.ipynb
   - file: step-by-step/plotly-express.ipynb
 - caption: Data Poetry
-  numbered: true 
   chapters:
   - file: data-poetry/polars.md
 
