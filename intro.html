@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Altair &#8212; Data Expressions</title>
+    <title>Intro &#8212; Data Expressions</title>
   
   
   
@@ -61,9 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'altair-intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bar Chart" href="step-by-step/altair-1-bar-chart.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,7 +130,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="#">
   
   
   
@@ -148,8 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
                     Intro
                 </a>
             </li>
@@ -241,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Faltair-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -271,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/altair-intro.ipynb" target="_blank"
+      <li><a href="_sources/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -340,7 +341,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -351,11 +354,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Altair</h1>
+    <h1>Intro</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-me">About Me</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -365,126 +377,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="altair">
-<h1>Altair<a class="headerlink" href="#altair" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
-
-<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">disasters</span><span class="o">.</span><span class="n">url</span>
-
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">Entity</span> <span class="o">!=</span> <span class="s1">&#39;All natural disasters&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
-    <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
-    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">strokeOpacity</span><span class="o">=</span><span class="mf">0.4</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Year:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1899&#39;</span><span class="p">,</span><span class="s1">&#39;2018&#39;</span><span class="p">])),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
-        <span class="s1">&#39;Entity:N&#39;</span><span class="p">,</span>
-        <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;Deaths&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
-        <span class="n">title</span><span class="o">=</span><span class="kc">None</span>
-    <span class="p">),</span>
-    <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Deaths:Q&#39;</span><span class="p">,</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2500</span><span class="p">]),</span>
-        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Deaths&#39;</span><span class="p">,</span> <span class="n">clipHeight</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-    <span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Entity:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
-    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span>
-        <span class="s2">&quot;Entity:N&quot;</span><span class="p">,</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;Year:T&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">),</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;Deaths:Q&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;~s&#39;</span><span class="p">)</span>
-    <span class="p">],</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span>
-        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Global Deaths from Natural Disasters (1900-2017)&quot;</span><span class="p">,</span>
-        <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The size of the bubble represents the total death count per year, by type of disaster&quot;</span><span class="p">,</span>
-        <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;start&#39;</span>
-    <span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_axisY</span><span class="p">(</span>
-    <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">offset</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_axisX</span><span class="p">(</span>
-    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
-    <span class="n">stroke</span><span class="o">=</span><span class="kc">None</span>
-<span class="p">)</span>
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
+<p>The purpose of this website is to ultimately showcase nuances of data using information display technique such as data visualization.</p>
+</section>
+<section id="about-me">
+<h2>About Me<a class="headerlink" href="#about-me" title="Permalink to this heading">#</a></h2>
+<p>My name is Jung Hoon Son. I am a medical doctor, informaticist, data engineer, knowledge architect, with a passion for information display.</p>
+<p>Growing up in the U.S. as an immigrant from Korea, I’ve struggled with expressing my thoughts using a very serialized form of information: language.</p>
+<p>Over time, I felt like I’ve learned to serialize my thoughts for professional career’s sake, but my thoughts are still very dynamic and visual.</p>
+<p>I envy writers who can leverage language as a powerful API to connect with the rest of the world, but I also feel that information display techniques like data visualizations can provide additional can help deliver nuanced information in an more accessible manner than text-with-references-at-the-end format.</p>
+</section>
+<div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<style>
-  #altair-viz-3a1ba7531298443ea19d97b9ed4568db.vega-embed {
-    width: 100%;
-    display: flex;
-  }
-
-  #altair-viz-3a1ba7531298443ea19d97b9ed4568db.vega-embed details,
-  #altair-viz-3a1ba7531298443ea19d97b9ed4568db.vega-embed details summary {
-    position: relative;
-  }
-</style>
-<div id="altair-viz-3a1ba7531298443ea19d97b9ed4568db"></div>
-<script type="text/javascript">
-  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-3a1ba7531298443ea19d97b9ed4568db") {
-      outputDiv = document.getElementById("altair-viz-3a1ba7531298443ea19d97b9ed4568db");
-    }
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
-    };
-
-    function maybeLoadScript(lib, version) {
-      var key = `${lib.replace("-", "")}_version`;
-      return (VEGA_DEBUG[key] == version) ?
-        Promise.resolve(paths[lib]) :
-        new Promise(function(resolve, reject) {
-          var s = document.createElement('script');
-          document.getElementsByTagName("head")[0].appendChild(s);
-          s.async = true;
-          s.onload = () => {
-            VEGA_DEBUG[key] = version;
-            return resolve(paths[lib]);
-          };
-          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-          s.src = paths[lib];
-        });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else {
-      maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
-        .then(() => maybeLoadScript("vega-embed", "6"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"}, {"mode": "vega-lite"});
-</script></div></div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -519,6 +429,15 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="right-next"
+       href="step-by-step/altair-1-bar-chart.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bar Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -528,6 +447,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-me">About Me</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
