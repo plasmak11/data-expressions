@@ -366,6 +366,125 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bar-chart">
 <h1>Bar Chart<a class="headerlink" href="#bar-chart" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">disasters</span><span class="o">.</span><span class="n">url</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">Entity</span> <span class="o">!=</span> <span class="s1">&#39;All natural disasters&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">strokeOpacity</span><span class="o">=</span><span class="mf">0.4</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Year:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1899&#39;</span><span class="p">,</span><span class="s1">&#39;2018&#39;</span><span class="p">])),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+        <span class="s1">&#39;Entity:N&#39;</span><span class="p">,</span>
+        <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;Deaths&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
+        <span class="n">title</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">),</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Deaths:Q&#39;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2500</span><span class="p">]),</span>
+        <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Deaths&#39;</span><span class="p">,</span> <span class="n">clipHeight</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Entity:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;Entity:N&quot;</span><span class="p">,</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;Year:T&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">),</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;Deaths:Q&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;~s&#39;</span><span class="p">)</span>
+    <span class="p">],</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Global Deaths from Natural Disasters (1900-2017)&quot;</span><span class="p">,</span>
+        <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The size of the bubble represents the total death count per year, by type of disaster&quot;</span><span class="p">,</span>
+        <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;start&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axisY</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axisX</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-96e61dfe65b24ecd85906627d8261714.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-96e61dfe65b24ecd85906627d8261714.vega-embed details,
+  #altair-viz-96e61dfe65b24ecd85906627d8261714.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-96e61dfe65b24ecd85906627d8261714"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-96e61dfe65b24ecd85906627d8261714") {
+      outputDiv = document.getElementById("altair-viz-96e61dfe65b24ecd85906627d8261714");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
