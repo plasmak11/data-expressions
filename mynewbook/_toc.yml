@@ -7,12 +7,12 @@ root: intro
 parts:
 - caption: Step-by-step Guides
   chapters:
-  - file: step-by-step/step-by-step-intro.md
-    sections:
-      - file: step-by-step/altair-1-bar-chart.ipynb
-      - file: step-by-step/altair-2-scatter-chart.ipynb
-    sections:
-      - file: step-by-step/plotly-express.ipynb
+    - file: step-by-step/step-by-step-intro.md
+      sections:
+        - file: step-by-step/altair-1-bar-chart.ipynb
+        - file: step-by-step/altair-2-scatter-chart.ipynb
+      sections:
+        - file: step-by-step/plotly-express.ipynb
   
 - caption: Data Poetry
   chapters:
