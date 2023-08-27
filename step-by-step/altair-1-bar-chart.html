@@ -346,7 +346,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -362,6 +364,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-data">Explore the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -373,6 +384,60 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bar-chart">
 <h1>Bar Chart<a class="headerlink" href="#bar-chart" title="Permalink to this heading">#</a></h1>
+<p>Bar chart is the bread and butter of data visualization. You can basically meet 90% of business-relevant metrics with bar charts.</p>
+<section id="explore-the-data">
+<h2>Explore the data<a class="headerlink" href="#explore-the-data" title="Permalink to this heading">#</a></h2>
+<p>Polars is my favorite dataframe library. Let’s try to make a fun bar chart using a boring dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">disasters</span><span class="o">.</span><span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;source&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr > th,
+.dataframe > tbody > tr > td {
+  text-align: right;
+}
+</style>
+<small>shape: (803, 3)</small><table border="1" class="dataframe"><thead><tr><th>Entity</th><th>Year</th><th>Deaths</th></tr><tr><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>&quot;All natural di…</td><td>1900</td><td>1267360</td></tr><tr><td>&quot;All natural di…</td><td>1901</td><td>200018</td></tr><tr><td>&quot;All natural di…</td><td>1902</td><td>46037</td></tr><tr><td>&quot;All natural di…</td><td>1903</td><td>6506</td></tr><tr><td>&quot;All natural di…</td><td>1905</td><td>22758</td></tr><tr><td>&quot;All natural di…</td><td>1906</td><td>42970</td></tr><tr><td>&quot;All natural di…</td><td>1907</td><td>1325641</td></tr><tr><td>&quot;All natural di…</td><td>1908</td><td>75033</td></tr><tr><td>&quot;All natural di…</td><td>1909</td><td>1511524</td></tr><tr><td>&quot;All natural di…</td><td>1910</td><td>148233</td></tr><tr><td>&quot;All natural di…</td><td>1911</td><td>102408</td></tr><tr><td>&quot;All natural di…</td><td>1912</td><td>52093</td></tr><tr><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2006</td><td>13</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2007</td><td>148</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2008</td><td>86</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2009</td><td>190</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2010</td><td>166</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2011</td><td>10</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2012</td><td>21</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2013</td><td>35</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2014</td><td>16</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2015</td><td>67</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2016</td><td>39</td></tr><tr><td>&quot;Wildfire&quot;</td><td>2017</td><td>75</td></tr></tbody></table></div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
@@ -424,74 +489,8 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<style>
-  #altair-viz-388a90aa52464472bc4107766985741d.vega-embed {
-    width: 100%;
-    display: flex;
-  }
-
-  #altair-viz-388a90aa52464472bc4107766985741d.vega-embed details,
-  #altair-viz-388a90aa52464472bc4107766985741d.vega-embed details summary {
-    position: relative;
-  }
-</style>
-<div id="altair-viz-388a90aa52464472bc4107766985741d"></div>
-<script type="text/javascript">
-  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-388a90aa52464472bc4107766985741d") {
-      outputDiv = document.getElementById("altair-viz-388a90aa52464472bc4107766985741d");
-    }
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
-    };
-
-    function maybeLoadScript(lib, version) {
-      var key = `${lib.replace("-", "")}_version`;
-      return (VEGA_DEBUG[key] == version) ?
-        Promise.resolve(paths[lib]) :
-        new Promise(function(resolve, reject) {
-          var s = document.createElement('script');
-          document.getElementsByTagName("head")[0].appendChild(s);
-          s.async = true;
-          s.onload = () => {
-            VEGA_DEBUG[key] = version;
-            return resolve(paths[lib]);
-          };
-          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-          s.src = paths[lib];
-        });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else {
-      maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
-        .then(() => maybeLoadScript("vega-embed", "6"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"}, {"mode": "vega-lite"});
-</script></div></div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -552,6 +551,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-data">Explore the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
