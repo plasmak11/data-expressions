@@ -1,4 +1,4 @@
-## Intro
+# Intro
 
 ```{note}
 Altair is a data visualization library that wraps around a JavaScript-based data visualization framework called `vega`. This is why the entirety of Altair's data visualization can be represented in JSON format, to be rendered by vega's Javascript library on any modern browsers.
