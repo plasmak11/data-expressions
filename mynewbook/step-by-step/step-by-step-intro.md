@@ -1,4 +1,4 @@
-## Intro
+# Intro
 
 ```{note}
 Plotly express
