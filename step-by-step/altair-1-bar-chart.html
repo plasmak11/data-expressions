@@ -371,12 +371,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bar Chart</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-data">Preview the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground-data">Playground Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart-as-exploratory-data-analysis">Bar-chart as exploratory data analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-your-data">Understand your data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz-as-exploratory-data-analysis">Data Viz as exploratory data analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-data">Preview the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-bar-chart">Base Bar Chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tooltip">Adding a Tooltip</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reorder-y-axis-status-by-x-axis-count">Reorder Y-axis (status) by x-axis (count)</a></li>
@@ -399,8 +399,15 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="bar-chart">
 <h1>Bar Chart<a class="headerlink" href="#bar-chart" title="Permalink to this heading">#</a></h1>
 <p>Bar chart is the bread and butter of data visualization. You can basically meet 90% of data analytics needs with bar chart.</p>
-<section id="preview-the-data">
-<h2>Preview the data<a class="headerlink" href="#preview-the-data" title="Permalink to this heading">#</a></h2>
+<section id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h2>
+<p>Often, online examples have 1 final example with 50-line chart-generating code, which can be daunting for begginers. I aim to</p>
+<p>One of the best way for beginners to learn data visualization code is to display, incremental, line-by-line additions with changes is best for learning.</p>
+<p>Typically, most data visualization experts usually do it for creating “dashboard” output, but for me, data visualization is a mechanism to understand data, and often few of the output ends up becoming useful by chance.</p>
+<p>The “iterative” development is often unintentionally discouraged given today’s “Scrum” culture - you need to definite your X and Y before you even get to the data.</p>
+</section>
+<section id="playground-data">
+<h2>Playground Data<a class="headerlink" href="#playground-data" title="Permalink to this heading">#</a></h2>
 <p>Polars is my favorite dataframe library. There is an interesting open-source effort in biomedical space called OpenTargets.</p>
 <p>Downloaded the (tab-separated value) from OpenTargets:</p>
 <p><img alt="Alt text" src="../_images/iga_neph.png" /></p>
@@ -424,25 +431,20 @@ document.write(`
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bar-chart-as-exploratory-data-analysis">
-<h1>Bar-chart as exploratory data analysis<a class="headerlink" href="#bar-chart-as-exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
-<section id="intro">
-<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h2>
-<p>Often, online examples have 1 final example with 50-line chart-generating code, which can be daunting for begginers. I aim to</p>
-<p>One of the best way for beginners to learn data visualization code is to display, incremental, line-by-line additions with changes is best for learning.</p>
-</section>
-<section id="understand-your-data">
-<h2>Understand your data<a class="headerlink" href="#understand-your-data" title="Permalink to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="data-viz-as-exploratory-data-analysis">
+<h1>Data Viz as exploratory data analysis<a class="headerlink" href="#data-viz-as-exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
+<section id="preview-the-data">
+<h2>Preview the data<a class="headerlink" href="#preview-the-data" title="Permalink to this heading">#</a></h2>
 <p>For starters, an easy way to explore complex datasets like this is to explore seemingly obvious ones.</p>
 <p>The data contains:</p>
 <ul class="simple">
 <li><p>row-by-row information for disease IgA glomerulonephritis (IgA nephropathy)</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">status</span></code> column is relatively understandable, even if you don’t come from biomedical background.</p>
-<p>Let’s start with plotting a count of different <code class="docutils literal notranslate"><span class="pre">status</span></code> counts.</p>
 </section>
 <section id="base-bar-chart">
 <h2>Base Bar Chart<a class="headerlink" href="#base-bar-chart" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">status</span></code> column is relatively understandable, even if you don’t come from biomedical background.</p>
+<p>Let’s start with plotting a count of different <code class="docutils literal notranslate"><span class="pre">status</span></code> counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
@@ -461,23 +463,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-e7065026d60349bc924487c2daf235af.vega-embed {
+  #altair-viz-59fa7d003b774cee87495d5bdf6d97b5.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-e7065026d60349bc924487c2daf235af.vega-embed details,
-  #altair-viz-e7065026d60349bc924487c2daf235af.vega-embed details summary {
+  #altair-viz-59fa7d003b774cee87495d5bdf6d97b5.vega-embed details,
+  #altair-viz-59fa7d003b774cee87495d5bdf6d97b5.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-e7065026d60349bc924487c2daf235af"></div>
+<div id="altair-viz-59fa7d003b774cee87495d5bdf6d97b5"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-e7065026d60349bc924487c2daf235af") {
-      outputDiv = document.getElementById("altair-viz-e7065026d60349bc924487c2daf235af");
+    if (outputDiv.id !== "altair-viz-59fa7d003b774cee87495d5bdf6d97b5") {
+      outputDiv = document.getElementById("altair-viz-59fa7d003b774cee87495d5bdf6d97b5");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -551,23 +553,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-77bb51807a554e4fac3a4fe403dabae8.vega-embed {
+  #altair-viz-3bf9c8976e5247d3a994b15f6cd17da0.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-77bb51807a554e4fac3a4fe403dabae8.vega-embed details,
-  #altair-viz-77bb51807a554e4fac3a4fe403dabae8.vega-embed details summary {
+  #altair-viz-3bf9c8976e5247d3a994b15f6cd17da0.vega-embed details,
+  #altair-viz-3bf9c8976e5247d3a994b15f6cd17da0.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-77bb51807a554e4fac3a4fe403dabae8"></div>
+<div id="altair-viz-3bf9c8976e5247d3a994b15f6cd17da0"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-77bb51807a554e4fac3a4fe403dabae8") {
-      outputDiv = document.getElementById("altair-viz-77bb51807a554e4fac3a4fe403dabae8");
+    if (outputDiv.id !== "altair-viz-3bf9c8976e5247d3a994b15f6cd17da0") {
+      outputDiv = document.getElementById("altair-viz-3bf9c8976e5247d3a994b15f6cd17da0");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -643,23 +645,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-71439249a83e4fe8b251c6ee81380d40.vega-embed {
+  #altair-viz-19c51546be324643af0f773384a92bae.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-71439249a83e4fe8b251c6ee81380d40.vega-embed details,
-  #altair-viz-71439249a83e4fe8b251c6ee81380d40.vega-embed details summary {
+  #altair-viz-19c51546be324643af0f773384a92bae.vega-embed details,
+  #altair-viz-19c51546be324643af0f773384a92bae.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-71439249a83e4fe8b251c6ee81380d40"></div>
+<div id="altair-viz-19c51546be324643af0f773384a92bae"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-71439249a83e4fe8b251c6ee81380d40") {
-      outputDiv = document.getElementById("altair-viz-71439249a83e4fe8b251c6ee81380d40");
+    if (outputDiv.id !== "altair-viz-19c51546be324643af0f773384a92bae") {
+      outputDiv = document.getElementById("altair-viz-19c51546be324643af0f773384a92bae");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -734,23 +736,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef.vega-embed {
+  #altair-viz-b50e9e691ebe48a9a6f1be0412dd749b.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef.vega-embed details,
-  #altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef.vega-embed details summary {
+  #altair-viz-b50e9e691ebe48a9a6f1be0412dd749b.vega-embed details,
+  #altair-viz-b50e9e691ebe48a9a6f1be0412dd749b.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef"></div>
+<div id="altair-viz-b50e9e691ebe48a9a6f1be0412dd749b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef") {
-      outputDiv = document.getElementById("altair-viz-3f52d652ec2e4fd793ad47ef4de9ebef");
+    if (outputDiv.id !== "altair-viz-b50e9e691ebe48a9a6f1be0412dd749b") {
+      outputDiv = document.getElementById("altair-viz-b50e9e691ebe48a9a6f1be0412dd749b");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -819,8 +821,6 @@ document.write(`
             <span class="s2">&quot;status:N&quot;</span>
         <span class="p">]</span>
     <span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Drug Trials for IgA Nephropathy&quot;</span>
 <span class="p">)</span>
 
 <span class="n">fig</span>
@@ -830,23 +830,113 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-6f381bd0f10e45429ce39831a6c1d16b.vega-embed {
+  #altair-viz-eda486a4c28745748d3d994553b6f835.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-6f381bd0f10e45429ce39831a6c1d16b.vega-embed details,
-  #altair-viz-6f381bd0f10e45429ce39831a6c1d16b.vega-embed details summary {
+  #altair-viz-eda486a4c28745748d3d994553b6f835.vega-embed details,
+  #altair-viz-eda486a4c28745748d3d994553b6f835.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-6f381bd0f10e45429ce39831a6c1d16b"></div>
+<div id="altair-viz-eda486a4c28745748d3d994553b6f835"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6f381bd0f10e45429ce39831a6c1d16b") {
-      outputDiv = document.getElementById("altair-viz-6f381bd0f10e45429ce39831a6c1d16b");
+    if (outputDiv.id !== "altair-viz-eda486a4c28745748d3d994553b6f835") {
+      outputDiv = document.getElementById("altair-viz-eda486a4c28745748d3d994553b6f835");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d8b010d8a623bfd2a3ba7a368b00fc84"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "status", "title": null, "type": "nominal"}, "tooltip": [{"aggregate": "distinct", "field": "drugId", "type": "quantitative"}, {"field": "status", "type": "nominal"}], "x": {"aggregate": "distinct", "field": "drugId", "title": "Unique Drugs", "type": "quantitative"}, "y": {"field": "status", "sort": "-x", "title": "Status", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-d8b010d8a623bfd2a3ba7a368b00fc84": [{"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL429910", "drugName": "DAPAGLIFLOZIN", "type": "Small molecule", "mechanismOfAction": "Sodium/glucose cotransporter 2 inhibitor", "actionType": "Inhibitor", "symbol": "SLC5A2", "name": "solute carrier family 5 member 2", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1168", "drugName": "RAMIPRIL", "type": "Small molecule", "mechanismOfAction": "Angiotensin-converting enzyme inhibitor", "actionType": "Inhibitor", "symbol": "ACE", "name": "angiotensin I converting enzyme", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1535", "drugName": "HYDROXYCHLOROQUINE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 7 antagonist", "actionType": "Antagonist", "symbol": "TLR7", "name": "toll like receptor 7", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02351752"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1639", "drugName": "ALISKIREN", "type": "Small molecule", "mechanismOfAction": "Renin inhibitor", "actionType": "Inhibitor", "symbol": "REN", "name": "renin", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00922311"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594217", "drugName": "CANAGLIFLOZIN", "type": "Small molecule", "mechanismOfAction": "Sodium/glucose cotransporter 2 inhibitor", "actionType": "Inhibitor", "symbol": "SLC5A2", "name": "solute carrier family 5 member 2", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1535", "drugName": "HYDROXYCHLOROQUINE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 9 antagonist", "actionType": "Antagonist", "symbol": "TLR9", "name": "toll like receptor 9", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02351752"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL578", "drugName": "ENALAPRIL", "type": "Small molecule", "mechanismOfAction": "Angiotensin-converting enzyme inhibitor", "actionType": "Inhibitor", "symbol": "ACE", "name": "angiotensin I converting enzyme", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00367562"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH1", "name": "inosine monophosphate dehydrogenase 1", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02981212"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1069", "drugName": "VALSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02765594"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1690", "drugName": "HYDROXYCHLOROQUINE SULFATE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 7 antagonist", "actionType": "Antagonist", "symbol": "TLR7", "name": "toll like receptor 7", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02351752"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1535", "drugName": "HYDROXYCHLOROQUINE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 9 antagonist", "actionType": "Antagonist", "symbol": "TLR9", "name": "toll like receptor 9", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02765594"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL608", "drugName": "PROBUCOL", "type": "Small molecule", "mechanismOfAction": "ATP-binding cassette sub-family A member 1 inhibitor", "actionType": "Inhibitor", "symbol": "ABCA1", "name": "ATP binding cassette subfamily A member 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00426348"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL191", "drugName": "LOSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02231125"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL635", "drugName": "PREDNISONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT01758120"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1690", "drugName": "HYDROXYCHLOROQUINE SULFATE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 9 antagonist", "actionType": "Antagonist", "symbol": "TLR9", "name": "toll like receptor 9", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02765594"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1690", "drugName": "HYDROXYCHLOROQUINE SULFATE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 9 antagonist", "actionType": "Antagonist", "symbol": "TLR9", "name": "toll like receptor 9", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02351752"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201576", "drugName": "RITUXIMAB", "type": "Antibody", "mechanismOfAction": "B-lymphocyte antigen CD20 binding agent", "actionType": "Binding agent", "symbol": "MS4A1", "name": "membrane spanning 4-domains A1", "phase": 4, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04525729"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1069", "drugName": "VALSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00367562,https://clinicaltrials.gov/ct2/show/NCT00426348"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH2", "name": "inosine monophosphate dehydrogenase 2", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00863252"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL635", "drugName": "PREDNISONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 4, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03218852"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH2", "name": "inosine monophosphate dehydrogenase 2", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02981212"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201576", "drugName": "RITUXIMAB", "type": "Antibody", "mechanismOfAction": "B-lymphocyte antigen CD20 binding agent", "actionType": "Binding agent", "symbol": "MS4A1", "name": "membrane spanning 4-domains A1", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02571842"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1690", "drugName": "HYDROXYCHLOROQUINE SULFATE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 7 antagonist", "actionType": "Antagonist", "symbol": "TLR7", "name": "toll like receptor 7", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02765594"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201081", "drugName": "METHYLPREDNISOLONE SODIUM SUCCINATE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00755859"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1237", "drugName": "LISINOPRIL", "type": "Small molecule", "mechanismOfAction": "Angiotensin-converting enzyme inhibitor", "actionType": "Inhibitor", "symbol": "ACE", "name": "angiotensin I converting enzyme", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201265", "drugName": "METHYLPREDNISOLONE HEMISUCCINATE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00755859"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1535", "drugName": "HYDROXYCHLOROQUINE", "type": "Small molecule", "mechanismOfAction": "Toll-like receptor 7 antagonist", "actionType": "Antagonist", "symbol": "TLR7", "name": "toll like receptor 7", "phase": 4, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02765594"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201576", "drugName": "RITUXIMAB", "type": "Antibody", "mechanismOfAction": "B-lymphocyte antigen CD20 binding agent", "actionType": "Binding agent", "symbol": "MS4A1", "name": "membrane spanning 4-domains A1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00498368"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH1", "name": "inosine monophosphate dehydrogenase 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00863252"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2048484", "drugName": "CANAGLIFLOZIN", "type": "Small molecule", "mechanismOfAction": "Sodium/glucose cotransporter 2 inhibitor", "actionType": "Inhibitor", "symbol": "SLC5A2", "name": "solute carrier family 5 member 2", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL191", "drugName": "LOSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT01115426"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2107830", "drugName": "EMPAGLIFLOZIN", "type": "Small molecule", "mechanismOfAction": "Sodium/glucose cotransporter 2 inhibitor", "actionType": "Inhibitor", "symbol": "SLC5A2", "name": "solute carrier family 5 member 2", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL191", "drugName": "LOSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 4, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04662723"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1168", "drugName": "RAMIPRIL", "type": "Small molecule", "mechanismOfAction": "Angiotensin-converting enzyme inhibitor", "actionType": "Inhibitor", "symbol": "ACE", "name": "angiotensin I converting enzyme", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT01115426"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL846", "drugName": "CALCITRIOL", "type": "Small molecule", "mechanismOfAction": "Vitamin D receptor agonist", "actionType": "Agonist", "symbol": "VDR", "name": "vitamin D receptor", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00319761"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1542", "drugName": "AZATHIOPRINE", "type": "Small molecule", "mechanismOfAction": "Amidophosphoribosyltransferase inhibitor", "actionType": "Inhibitor", "symbol": "PPAT", "name": "phosphoribosyl pyrophosphate amidotransferase", "phase": 4, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00755859"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1639", "drugName": "ALISKIREN", "type": "Small molecule", "mechanismOfAction": "Renin inhibitor", "actionType": "Inhibitor", "symbol": "REN", "name": "renin", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00870493"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH2", "name": "inosine monophosphate dehydrogenase 2", "phase": 3, "status": "Terminated", "source": "https://clinicaltrials.gov/ct2/show/NCT00318474"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL191", "drugName": "LOSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 3, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03357653"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL9194", "drugName": "ATRASENTAN", "type": "Small molecule", "mechanismOfAction": "Endothelin receptor ET-A antagonist", "actionType": "Antagonist", "symbol": "EDNRA", "name": "endothelin receptor type A", "phase": 3, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04573478"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4298195", "drugName": "NARSOPLIMAB", "type": "Antibody", "mechanismOfAction": "Mannan-binding lectin serine protease 2 inhibitor", "actionType": "Inhibitor", "symbol": "MASP2", "name": "MBL associated serine protease 2", "phase": 3, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03608033"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH1", "name": "inosine monophosphate dehydrogenase 1", "phase": 3, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02187900"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594448", "drugName": "IPTACOPAN", "type": "Small molecule", "mechanismOfAction": "Complement factor B inhibitor", "actionType": "Inhibitor", "symbol": "CFB", "name": "complement factor B", "phase": 3, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04578834,https://clinicaltrials.gov/ct2/show/NCT04557462"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL131", "drugName": "PREDNISOLONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00554502"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201081", "drugName": "METHYLPREDNISOLONE SODIUM SUCCINATE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL635", "drugName": "PREDNISONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059,https://clinicaltrials.gov/ct2/show/NCT01392833"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH2", "name": "inosine monophosphate dehydrogenase 2", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL131", "drugName": "PREDNISOLONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Not yet recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT05510323"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2107877", "drugName": "BLISIBIMOD", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13B inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13B", "name": "TNF superfamily member 13b", "phase": 3, "status": "Withdrawn", "source": "https://clinicaltrials.gov/ct2/show/NCT02052219"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1513", "drugName": "IRBESARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH1", "name": "inosine monophosphate dehydrogenase 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL650", "drugName": "METHYLPREDNISOLONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT01392833,https://clinicaltrials.gov/ct2/show/NCT00657059,https://clinicaltrials.gov/ct2/show/NCT00554502"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1513", "drugName": "IRBESARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 3, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03762850"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1201265", "drugName": "METHYLPREDNISOLONE HEMISUCCINATE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00657059"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL539423", "drugName": "SPARSENTAN", "type": "Small molecule", "mechanismOfAction": "Endothelin receptor ET-A antagonist", "actionType": "Antagonist", "symbol": "EDNRA", "name": "endothelin receptor type A", "phase": 3, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03762850"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1542", "drugName": "AZATHIOPRINE", "type": "Small molecule", "mechanismOfAction": "Amidophosphoribosyltransferase inhibitor", "actionType": "Inhibitor", "symbol": "PPAT", "name": "phosphoribosyl pyrophosphate amidotransferase", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00554502,https://clinicaltrials.gov/ct2/show/NCT01392833"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL191", "drugName": "LOSARTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 3, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02232776"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL539423", "drugName": "SPARSENTAN", "type": "Small molecule", "mechanismOfAction": "Type-1 angiotensin II receptor antagonist", "actionType": "Antagonist", "symbol": "AGTR1", "name": "angiotensin II receptor type 1", "phase": 3, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03762850"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH1", "name": "inosine monophosphate dehydrogenase 1", "phase": 3, "status": "Terminated", "source": "https://clinicaltrials.gov/ct2/show/NCT00318474"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1200622", "drugName": "PARICALCITOL", "type": "Small molecule", "mechanismOfAction": "Vitamin D receptor agonist", "actionType": "Agonist", "symbol": "VDR", "name": "vitamin D receptor", "phase": 3, "status": "Withdrawn", "source": "https://clinicaltrials.gov/ct2/show/NCT00599963"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1456", "drugName": "MYCOPHENOLATE MOFETIL", "type": "Small molecule", "mechanismOfAction": "Inosine-5'-monophosphate dehydrogenase (IMPDH) inhibitor", "actionType": "Inhibitor", "symbol": "IMPDH2", "name": "inosine monophosphate dehydrogenase 2", "phase": 3, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02187900"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL650", "drugName": "METHYLPREDNISOLONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 3, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04833374"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2107877", "drugName": "BLISIBIMOD", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13B inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13B", "name": "TNF superfamily member 13b", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02062684"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1742986", "drugName": "ATACICEPT", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13B inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13B", "name": "TNF superfamily member 13b", "phase": 2, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04716231"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1742986", "drugName": "ATACICEPT", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13B inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13B", "name": "TNF superfamily member 13b", "phase": 2, "status": "Terminated", "source": "https://clinicaltrials.gov/ct2/show/NCT02808429"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594448", "drugName": "IPTACOPAN", "type": "Small molecule", "mechanismOfAction": "Complement factor B inhibitor", "actionType": "Inhibitor", "symbol": "CFB", "name": "complement factor B", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT03373461"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL635", "drugName": "PREDNISONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00004448"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1742986", "drugName": "ATACICEPT", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13 inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13", "name": "TNF superfamily member 13", "phase": 2, "status": "Terminated", "source": "https://clinicaltrials.gov/ct2/show/NCT02808429"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL393220", "drugName": "ATORVASTATIN CALCIUM", "type": "Small molecule", "mechanismOfAction": "HMG-CoA reductase inhibitor", "actionType": "Inhibitor", "symbol": "HMGCR", "name": "3-hydroxy-3-methylglutaryl-CoA reductase", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00396721"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL131", "drugName": "PREDNISOLONE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 2, "status": "Unknown status", "source": "https://clinicaltrials.gov/ct2/show/NCT02662283"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594462", "drugName": "BATIRAXCEPT", "type": "Protein", "mechanismOfAction": "Growth arrest-specific protein 6 inhibitor", "actionType": "Inhibitor", "symbol": "GAS6", "name": "growth arrest specific 6", "phase": 2, "status": "Terminated", "source": "https://clinicaltrials.gov/ct2/show/NCT04042623"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL413", "drugName": "SIROLIMUS", "type": "Small molecule", "mechanismOfAction": "FK506-binding protein 1A inhibitor", "actionType": "Inhibitor", "symbol": "FKBP1A", "name": "FKBP prolyl isomerase 1A", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00396721"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2103830", "drugName": "FOSTAMATINIB", "type": "Small molecule", "mechanismOfAction": "Tyrosine-protein kinase SYK inhibitor", "actionType": "Inhibitor", "symbol": "SYK", "name": "spleen associated tyrosine kinase", "phase": 2, "status": "Withdrawn", "source": "https://clinicaltrials.gov/ct2/show/NCT02433236"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL269732", "drugName": "TACROLIMUS", "type": "Small molecule", "mechanismOfAction": "FK506-binding protein 1A inhibitor", "actionType": "Inhibitor", "symbol": "FKBP1A", "name": "FKBP prolyl isomerase 1A", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT01224028"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594460", "drugName": "AT-1501", "type": "Unknown", "mechanismOfAction": "CD40 ligand inhibitor", "actionType": "Inhibitor", "symbol": "CD40LG", "name": "CD40 ligand", "phase": 2, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT05125068"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1742986", "drugName": "ATACICEPT", "type": "Protein", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13 inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13", "name": "TNF superfamily member 13", "phase": 2, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04716231"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594614", "drugName": "SIBEPRENLIMAB", "type": "Antibody", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13 inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13", "name": "TNF superfamily member 13", "phase": 2, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT04287985"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594579", "drugName": "FELZARTAMAB", "type": "Antibody", "mechanismOfAction": "Lymphocyte differentiation antigen CD38 inhibitor", "actionType": "Inhibitor", "symbol": "CD38", "name": "CD38 molecule", "phase": 2, "status": "Recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT05065970"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1487", "drugName": "ATORVASTATIN", "type": "Small molecule", "mechanismOfAction": "HMG-CoA reductase inhibitor", "actionType": "Inhibitor", "symbol": "HMGCR", "name": "3-hydroxy-3-methylglutaryl-CoA reductase", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00396721"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL3989871", "drugName": "AVACOPAN", "type": "Small molecule", "mechanismOfAction": "C5a anaphylatoxin chemotactic receptor antagonist", "actionType": "Antagonist", "symbol": "C5AR1", "name": "complement C5a receptor 1", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02384317"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL1370", "drugName": "BUDESONIDE", "type": "Small molecule", "mechanismOfAction": "Glucocorticoid receptor agonist", "actionType": "Agonist", "symbol": "NR3C1", "name": "nuclear receptor subfamily 3 group C member 1", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00767221"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL2103830", "drugName": "FOSTAMATINIB", "type": "Small molecule", "mechanismOfAction": "Tyrosine-protein kinase SYK inhibitor", "actionType": "Inhibitor", "symbol": "SYK", "name": "spleen associated tyrosine kinase", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT02112838"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL578", "drugName": "ENALAPRIL", "type": "Small molecule", "mechanismOfAction": "Angiotensin-converting enzyme inhibitor", "actionType": "Inhibitor", "symbol": "ACE", "name": "angiotensin I converting enzyme", "phase": 2, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT00396721"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL3989516", "drugName": "FOSTAMATINIB DISODIUM", "type": "Small molecule", "mechanismOfAction": "Tyrosine-protein kinase SYK inhibitor", "actionType": "Inhibitor", "symbol": "SYK", "name": "spleen associated tyrosine kinase", "phase": 2, "status": "Withdrawn", "source": "https://clinicaltrials.gov/ct2/show/NCT02433236"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4297722", "drugName": "CEMDISIRAN", "type": "Oligonucleotide", "mechanismOfAction": "Complement C5 mRNA RNAi inhibitor", "actionType": "Rnai inhibitor", "symbol": "C5", "name": "complement C5", "phase": 2, "status": "Active, not recruiting", "source": "https://clinicaltrials.gov/ct2/show/NCT03841448"}, {"diseaseId": "EFO_0004194", "diseaseName": "IGA glomerulonephritis", "drugId": "CHEMBL4594614", "drugName": "SIBEPRENLIMAB", "type": "Antibody", "mechanismOfAction": "Tumor necrosis factor ligand superfamily member 13 inhibitor", "actionType": "Inhibitor", "symbol": "TNFSF13", "name": "TNF superfamily member 13", "phase": 1, "status": "Completed", "source": "https://clinicaltrials.gov/ct2/show/NCT03719443"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;distinct(drugId):Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Unique Drugs&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;status:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;-x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Status&quot;</span><span class="p">),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;status:N&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;distinct(drugId):Q&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;status:N&quot;</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Drug Trials for IgA Nephropathy&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9.vega-embed details,
+  #altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9") {
+      outputDiv = document.getElementById("altair-viz-97b5bb6c00024f4d9fd4222c8a5d8be9");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -966,12 +1056,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bar Chart</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-data">Preview the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground-data">Playground Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart-as-exploratory-data-analysis">Bar-chart as exploratory data analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-your-data">Understand your data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz-as-exploratory-data-analysis">Data Viz as exploratory data analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-data">Preview the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-bar-chart">Base Bar Chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tooltip">Adding a Tooltip</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reorder-y-axis-status-by-x-axis-count">Reorder Y-axis (status) by x-axis (count)</a></li>
