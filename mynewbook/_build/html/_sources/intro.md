@@ -8,8 +8,6 @@ The purpose of this website is to ultimately showcase nuances of data using info
 
 My name is Jung Hoon Son. I am a medical doctor, informaticist, data engineer, knowledge architect, with a passion for information display. 
 
-Growing up in the U.S. as an immigrant from Korea, I've struggled with expressing my thoughts using a very serialized form of information: language. 
+I often struggled to express my thoughts using a rather strictly serialized form of information, language, as my thoughts tend to be explosively dendritic - very dynamic, branching, and visual. As much as I envy writers who can leverage language as a powerful communication medium, I also feel that information display techniques like data visualizations can reach certain number of population - who think more visually.
 
-Over time, I felt like I've learned to serialize my thoughts for professional career's sake, but my thoughts are still very dynamic and visual.
-
-I envy writers who can leverage language as a powerful API to connect with the rest of the world, but I also feel that information display techniques like data visualizations can provide additional can help deliver nuanced information in an more accessible manner than text-with-references-at-the-end format.
+I hope to inspire and help people learn data visualization for this very reason.

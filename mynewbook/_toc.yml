@@ -12,10 +12,13 @@ parts:
       - file: step-by-step/altair-2-scatter-chart.ipynb
     - file: step-by-step/step-by-step-plotly.md
       sections:
-      - file: step-by-step/plotly-express.ipynb
+      - file: step-by-step/plotly-express-1-bar-chart.ipynb
   - caption: Data Poetry
     chapters:
     - file: data-poetry/polars.md
+  - caption: Personal Analyses
+    chapters:
+    - file: persona-analysis/prior-auth-denials.ipynb
   - caption: References
     chapters:
     - file: references.md

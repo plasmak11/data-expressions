@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Data Expressions</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'step-by-step/openai_polars';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_expressions_logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/data_expressions_logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step-by-step Guides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="step-by-step-altair.html">Altair</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="altair-1-bar-chart.html">Bar Chart</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="altair-2-scatter-chart.html">Scatter Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="step-by-step-plotly.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotly-express-1-bar-chart.html">Plotly Express</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Poetry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data-poetry/polars.html">Polars dataframe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/step-by-step/openai_polars.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyarrow.parquet</span> <span class="k">as</span> <span class="nn">pq</span>
+<span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_KEY&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">get_openai_response</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-16k-0613&quot;</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prompt_text</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}],</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">top_p</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">frequency_penalty</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">presence_penalty</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">write_to_parquet</span><span class="p">(</span><span class="n">test_records</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">prompt_text</span><span class="p">):</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;nct_id&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;parsed_output&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">dictionary</span><span class="p">(</span>
+            <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span> 
+            <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">())</span>
+        <span class="p">)</span>
+    <span class="p">])</span>
+    <span class="n">pq_writer</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">ParquetWriter</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">test_records</span><span class="p">):</span>
+        <span class="n">nct_id</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;nct_id&#39;</span><span class="p">]</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="n">get_openai_response</span><span class="p">(</span>
+            <span class="n">prompt_text</span><span class="p">,</span>
+            <span class="n">description</span><span class="p">)</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">([[</span><span class="n">nct_id</span><span class="p">],</span> <span class="p">[</span><span class="n">description</span><span class="p">],</span> <span class="p">[</span><span class="n">response_json</span><span class="p">]],</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">)</span>
+        <span class="n">pq_writer</span><span class="o">.</span><span class="n">write_table</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+
+    <span class="n">pq_writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;nct_id&quot;</span><span class="p">:</span> <span class="s2">&quot;NCT11111111&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This phase 3 trial evaluates the efficacy of nimbruvica compared to standard chemotherapy in patients with relapsed or refractory Acute Myeloid Leukemia (AML). AML is a cancer of the myeloid line of blood cells characterized by rapid growth of abnormal white blood cells. The study will enroll 530 participants across 100 sites globally.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;nct_id&quot;</span><span class="p">:</span> <span class="s2">&quot;NCT22222222&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a randomized, double-blind trial assessing long-term safety and efficacy of VYX-561 versus imatinib in patients with Chronic Myeloid Leukemia (CML) positive for the Philadelphia chromosome. CML causes increased and unregulated myeloid cell growth. VYX-561 is an investigational oral targeted therapy that inhibits the abnormal protein driving CML progression.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;nct_id&quot;</span><span class="p">:</span> <span class="s2">&quot;NCT33333333&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This randomized study investigates the combination of idelvova and rituximab versus rituximab alone for previously untreated Chronic Lymphocytic Leukemia (CLL). CLL results in excessive abnormal lymphocytes and tends to progress slowly over years. Idelvova is thought to enhance rituximab&#39;s anti-cancer effects by increasing immune activity against malignant CLL cells.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;nct_id&quot;</span><span class="p">:</span> <span class="s2">&quot;NCT44444444&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;This phase 2, open-label study evaluates niltroxan monotherapy in patients with relapsed or refractory Hairy Cell Leukemia. The drug will be administered orally twice daily. Hairy Cell Leukemia is a rare, slow-growing cancer where the bone marrow overproduces abnormal B cell lymphocytes with a &#39;hairy&#39; appearance.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;nct_id&quot;</span><span class="p">:</span> <span class="s2">&quot;NCT55555555&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This multinational phase 3 trial investigates the addition of cortiumab to standard chemotherapy for pediatric patients with high-risk B-cell Acute Lymphoblastic Leukemia (ALL). ALL is an aggressive cancer starting from immature white blood cells. Cortiumab is a monoclonal antibody designed to target CD22 antigen on malignant cells to enhance chemotherapy&#39;s anti-leukemia effects.&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;nct_id&#39;: &#39;NCT11111111&#39;,
+  &#39;description&#39;: &#39;This phase 3 trial evaluates the efficacy of nimbruvica compared to standard chemotherapy in patients with relapsed or refractory Acute Myeloid Leukemia (AML). AML is a cancer of the myeloid line of blood cells characterized by rapid growth of abnormal white blood cells. The study will enroll 530 participants across 100 sites globally.&#39;},
+ {&#39;nct_id&#39;: &#39;NCT22222222&#39;,
+  &#39;description&#39;: &#39;This is a randomized, double-blind trial assessing long-term safety and efficacy of VYX-561 versus imatinib in patients with Chronic Myeloid Leukemia (CML) positive for the Philadelphia chromosome. CML causes increased and unregulated myeloid cell growth. VYX-561 is an investigational oral targeted therapy that inhibits the abnormal protein driving CML progression.&#39;},
+ {&#39;nct_id&#39;: &#39;NCT33333333&#39;,
+  &#39;description&#39;: &quot;This randomized study investigates the combination of idelvova and rituximab versus rituximab alone for previously untreated Chronic Lymphocytic Leukemia (CLL). CLL results in excessive abnormal lymphocytes and tends to progress slowly over years. Idelvova is thought to enhance rituximab&#39;s anti-cancer effects by increasing immune activity against malignant CLL cells.&quot;},
+ {&#39;nct_id&#39;: &#39;NCT44444444&#39;,
+  &#39;description&#39;: &quot;This phase 2, open-label study evaluates niltroxan monotherapy in patients with relapsed or refractory Hairy Cell Leukemia. The drug will be administered orally twice daily. Hairy Cell Leukemia is a rare, slow-growing cancer where the bone marrow overproduces abnormal B cell lymphocytes with a &#39;hairy&#39; appearance.&quot;},
+ {&#39;nct_id&#39;: &#39;NCT55555555&#39;,
+  &#39;description&#39;: &quot;This multinational phase 3 trial investigates the addition of cortiumab to standard chemotherapy for pediatric patients with high-risk B-cell Acute Lymphoblastic Leukemia (ALL). ALL is an aggressive cancer starting from immature white blood cells. Cortiumab is a monoclonal antibody designed to target CD22 antigen on malignant cells to enhance chemotherapy&#39;s anti-leukemia effects.&quot;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    Return as JSON. </span>
+<span class="s2">    Include: indication/disease name, indication as EFO ID, product name, trial phase. </span>
+<span class="s2">    Don&#39;t return the original text.</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This phase 3, randomized, double-blind trial will assess long-term safety</span>
+<span class="s2">    and efficacy of VYX-561 versus imatinib in patients with Chronic Myeloid Leukemia </span>
+<span class="s2">    (CML) positive for the Philadelphia chromosome. CML causes increased and unregulated </span>
+<span class="s2">    myeloid cell growth. VYX-561 is an investigational oral targeted therapy that </span>
+<span class="s2">    inhibits the abnormal protein driving CML progression.</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+<span class="n">response_json</span> <span class="o">=</span> <span class="n">get_openai_response</span><span class="p">(</span>
+    <span class="n">prompt_text</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span> 
+    <span class="n">text</span><span class="o">=</span><span class="n">text</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;indication_name&#39;: &#39;Chronic Myeloid Leukemia&#39;,
+ &#39;indication_efo_id&#39;: &#39;EFO:0000565&#39;,
+ &#39;product_name&#39;: &#39;VYX-561&#39;,
+ &#39;trial_phase&#39;: &#39;Phase 3&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">json</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="nb">id</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">description</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;id&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_to_parquet</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> 
+    <span class="s2">&quot;output.parquet&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Return as JSON: which includes: indication/disease name, indication as EFO ID, product name, trial phase. Don&#39;t returns the original text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">workspaces</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="n">expressions</span><span class="o">/</span><span class="n">mynewbook</span><span class="o">/</span><span class="n">step</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">step</span><span class="o">/</span><span class="n">openai_polars</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">Cell</span> <span class="mi">6</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">write_to_parquet</span><span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=1&#39;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="n">data</span><span class="p">,</span> 
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=2&#39;</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="s2">&quot;output.parquet&quot;</span><span class="p">,</span> 
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=3&#39;</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="s2">&quot;Return as JSON: which includes: indication/disease name, indication as EFO ID, product name, trial phase. Don&#39;t returns the original text&quot;</span><span class="p">)</span>
+
+<span class="o">/</span><span class="n">workspaces</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="n">expressions</span><span class="o">/</span><span class="n">mynewbook</span><span class="o">/</span><span class="n">step</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">step</span><span class="o">/</span><span class="n">openai_polars</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">Cell</span> <span class="mi">6</span> <span class="n">line</span> <span class="mi">2</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=24&#39;</span><span class="o">&gt;</span><span class="mi">25</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">def</span> <span class="nf">write_to_parquet</span><span class="p">(</span><span class="n">test_records</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">prompt_text</span><span class="p">):</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=25&#39;</span><span class="o">&gt;</span><span class="mi">26</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="n">schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">([</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=26&#39;</span><span class="o">&gt;</span><span class="mi">27</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="p">(</span><span class="s1">&#39;nct_id&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=27&#39;</span><span class="o">&gt;</span><span class="mi">28</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+<span class="o">---&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=28&#39;</span><span class="o">&gt;</span><span class="mi">29</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="p">(</span><span class="s1">&#39;parsed_output&#39;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">dictionary</span><span class="p">(</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=29&#39;</span><span class="o">&gt;</span><span class="mi">30</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>             <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span> 
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=30&#39;</span><span class="o">&gt;</span><span class="mi">31</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>             <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">())</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=31&#39;</span><span class="o">&gt;</span><span class="mi">32</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="p">)</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=32&#39;</span><span class="o">&gt;</span><span class="mi">33</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="p">])</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=33&#39;</span><span class="o">&gt;</span><span class="mi">34</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="n">pq_writer</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">ParquetWriter</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://codespaces%2Bliterate-broccoli-7v976ww6v67fp6j7/workspaces/data-expressions/mynewbook/step-by-step/openai_polars.ipynb#X25sdnNjb2RlLXJlbW90ZQ%3D%3D?line=35&#39;</span><span class="o">&gt;</span><span class="mi">36</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">test_records</span><span class="p">):</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/pyarrow/types.pxi:4392,</span> in <span class="ni">pyarrow.lib.dictionary</span><span class="nt">()</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/pyarrow/types.pxi:4443,</span> in <span class="ni">pyarrow.lib.dictionary</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: The dictionary index type should be integer.
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./step-by-step"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jung Hoon Son, M.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
