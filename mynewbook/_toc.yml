@@ -18,7 +18,7 @@ parts:
     - file: data-poetry/polars.md
   - caption: Personal Analyses
     chapters:
-    - file: personal-analysis/prior-auth-denials.ipynb
+    - file: personal-analysis/claims-denials.ipynb
   - caption: References
     chapters:
     - file: references.md
