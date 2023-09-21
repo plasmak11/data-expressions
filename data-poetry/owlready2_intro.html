@@ -337,12 +337,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Biomedical Ontologies: Owlready2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interface">Visual interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dictionary-of-ontology-items">Results: Dictionary of Ontology items</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-list-of-dictionary-of-ontology-concepts-and-metadata">Results: List of dictionary of ontology concepts and metadata</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-one-concept">Check one concept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-is-a-concepts">Get <code class="docutils literal notranslate"><span class="pre">is_a</span></code> concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-ancestors">Get all ancestors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-descendants">Get all descendants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-subclasses">Get all Subclasses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-note">Things to Note:</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-visual-interface">TODO Visual Interface</a></li>
 </ul>
 
             </nav>
@@ -367,74 +371,23 @@ document.write(`
 
 <span class="n">hpo</span> <span class="o">=</span> <span class="n">owlready2</span><span class="o">.</span><span class="n">get_ontology</span><span class="p">(</span><span class="s2">&quot;http://purl.obolibrary.org/obo/hp.owl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 <span class="c1"># mondo = owlready2.get_ontology(&quot;http://purl.obolibrary.org/obo/mondo.owl&quot;).load()</span>
-<span class="n">efo</span> <span class="o">=</span> <span class="n">owlready2</span><span class="o">.</span><span class="n">get_ontology</span><span class="p">(</span><span class="s2">&quot;http://www.ebi.ac.uk/efo/efo.owl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hpo</span> <span class="o">=</span> <span class="n">owlready2</span><span class="o">.</span><span class="n">get_ontology</span><span class="p">(</span><span class="s2">&quot;http://purl.obolibrary.org/obo/hp.owl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># mondo = owlready2.get_ontology(&quot;http://purl.obolibrary.org/obo/mondo.owl&quot;).load()</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">efo</span> <span class="o">=</span> <span class="n">owlready2</span><span class="o">.</span><span class="n">get_ontology</span><span class="p">(</span><span class="s2">&quot;http://www.ebi.ac.uk/efo/efo.owl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/namespace.py:964,</span> in <span class="ni">Ontology.load</span><span class="nt">(self, only_local, fileobj, reload, reload_if_newer, url, **args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="k">raise</span> <span class="n">OwlReadyOntologyParsingError</span><span class="p">(</span><span class="s2">&quot;Cannot download &#39;</span><span class="si">%s</span><span class="s2">&#39;!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">url</span> <span class="ow">or</span> <span class="n">f</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">963</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">964</span>   <span class="n">new_base_iri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">fileobj</span><span class="p">,</span> <span class="n">default_base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_base_iri</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">965</span> <span class="k">except</span> <span class="n">OwlReadyOntologyParsingError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">966</span>   <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.owl&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.rdf&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.xml&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">url</span><span class="p">:</span> <span class="k">raise</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/driver.py:264,</span> in <span class="ni">BaseSubGraph.parse</span><span class="nt">(self, f, format, delete_existing_triples, default_base)</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>   <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span>     <span class="n">queue</span> <span class="o">=</span> <span class="n">_FakeQueue</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">import_triples_from_queue</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">delete_existing_triples</span><span class="p">))</span>
-<span class="ne">--&gt; </span><span class="mi">264</span>     <span class="n">onto_base_iri</span> <span class="o">=</span> <span class="n">do_parse</span><span class="p">(</span><span class="mi">800000</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="k">except</span> <span class="n">OwlReadyOntologyParsingError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span>   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_obj_triple_raw_spo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onto</span><span class="o">.</span><span class="n">storid</span><span class="p">,</span> <span class="n">rdf_type</span><span class="p">,</span> <span class="n">owl_ontology</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/driver.py:218,</span> in <span class="ni">BaseSubGraph.parse.&lt;locals&gt;.do_parse</span><span class="nt">(batch_size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span>   <span class="k">if</span> <span class="n">owlready2_optimized</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">218</span>     <span class="k">if</span>   <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;rdfxml&quot;</span><span class="p">:</span> <span class="n">owlready2_optimized</span><span class="o">.</span><span class="n">parse_rdfxml</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="n">default_base</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;owlxml&quot;</span><span class="p">:</span> <span class="n">owlready2_optimized</span><span class="o">.</span><span class="n">parse_owlxml</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="n">default_base</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>   <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File owlready2_optimized.pyx:371,</span> in <span class="ni">owlready2_optimized.parse_rdfxml</span><span class="nt">()</span>
-
-<span class="nn">File /tmp/python-src/Modules/pyexpat.c:468,</span> in <span class="ni">EndElement</span><span class="nt">()</span>
-
-<span class="nn">File owlready2_optimized.pyx:346,</span> in <span class="ni">owlready2_optimized.parse_rdfxml.endElement</span><span class="nt">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/driver.py:51,</span> in <span class="ni">_FakeQueue.put</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>   <span class="n">command</span><span class="p">,</span> <span class="n">triples</span> <span class="o">=</span> <span class="n">args</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>   <span class="k">if</span>   <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;objs&quot;</span><span class="p">:</span>   <span class="bp">self</span><span class="o">.</span><span class="n">insert_objs</span><span class="p">(</span><span class="n">triples</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>   <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;datas&quot;</span><span class="p">:</span>  <span class="bp">self</span><span class="o">.</span><span class="n">insert_datas</span><span class="p">(</span><span class="n">triples</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>   <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;finish&quot;</span><span class="p">:</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/triplelite.py:911,</span> in <span class="ni">SubGraph.import_triples_from_queue.&lt;locals&gt;.insert_objs</span><span class="nt">(triples)</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="k">def</span> <span class="nf">insert_objs</span><span class="p">(</span><span class="n">triples</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span>   <span class="n">objs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">_abbreviate</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">_abbreviate</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">_abbreviate</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">triples</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">911</span>   <span class="n">cur</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT OR IGNORE INTO objs VALUES (</span><span class="si">%s</span><span class="s2">,?,?,?)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">,</span> <span class="n">objs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">912</span>   <span class="k">if</span> <span class="n">new_abbrevs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span>     <span class="n">cur</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT INTO resources VALUES (?,?)&quot;</span><span class="p">,</span> <span class="n">new_abbrevs</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="c1"># efo = owlready2.get_ontology(&quot;http://www.ebi.ac.uk/efo/efo.owl&quot;).load()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;schizophrenia&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;moyamoya&quot;</span>
 
 <span class="c1"># Crude searcher</span>
 <span class="k">def</span> <span class="nf">obo_searcher</span><span class="p">(</span><span class="n">ontology</span><span class="p">,</span> <span class="n">search_term</span><span class="p">):</span>
     <span class="n">mondo_results</span> <span class="o">=</span> <span class="n">ontology</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;*</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">*&quot;</span><span class="p">,</span> <span class="n">_case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[{</span>
+        <span class="s2">&quot;concept&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
         <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
         <span class="s2">&quot;iri&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">iri</span><span class="p">,</span>
+        <span class="s2">&quot;synonyms&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">hasExactSynonym</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
         <span class="s2">&quot;subclasses&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">subclasses</span><span class="p">()),</span>
         <span class="s2">&quot;xrefs&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">hasDbXref</span>
@@ -445,9 +398,191 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">obo_searcher</span><span class="p">(</span><span class="n">hpo</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="visual-interface">
-<h1>Visual interface<a class="headerlink" href="#visual-interface" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="results-list-of-dictionary-of-ontology-concepts-and-metadata">
+<h1>Results: List of dictionary of ontology concepts and metadata<a class="headerlink" href="#results-list-of-dictionary-of-ontology-concepts-and-metadata" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;concept&#39;: obo.HP_0011834,
+  &#39;label&#39;: [&#39;Moyamoya phenomenon&#39;],
+  &#39;iri&#39;: &#39;http://purl.obolibrary.org/obo/HP_0011834&#39;,
+  &#39;synonyms&#39;: [],
+  &#39;name&#39;: &#39;HP_0011834&#39;,
+  &#39;subclasses&#39;: [],
+  &#39;xrefs&#39;: [&#39;UMLS:C4023169&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="check-one-concept">
+<h2>Check one concept<a class="headerlink" href="#check-one-concept" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;concept&#39;: obo.HP_0011834,
+  &#39;label&#39;: [&#39;Moyamoya phenomenon&#39;],
+  &#39;iri&#39;: &#39;http://purl.obolibrary.org/obo/HP_0011834&#39;,
+  &#39;synonyms&#39;: [],
+  &#39;name&#39;: &#39;HP_0011834&#39;,
+  &#39;subclasses&#39;: [],
+  &#39;xrefs&#39;: [&#39;UMLS:C4023169&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;concept&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hasExactSynonym</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-is-a-concepts">
+<h2>Get <code class="docutils literal notranslate"><span class="pre">is_a</span></code> concepts<a class="headerlink" href="#get-is-a-concepts" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_a</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;concept&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">is_a</span>
+
+<span class="c1"># it returns a list, since &quot;stomach cancer&quot; can be multiple things</span>
+<span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">label</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">is_a</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Abnormal cerebral artery morphology&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-all-ancestors">
+<h2>Get all ancestors<a class="headerlink" href="#get-all-ancestors" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ancestors</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;concept&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ancestors</span><span class="p">()</span>
+
+<span class="c1"># it returns a list of all ancestors</span>
+<span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">label</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ancestors</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Phenotypic abnormality&#39;],
+ [&#39;All&#39;],
+ [],
+ [&#39;Abnormality of cardiovascular system morphology&#39;],
+ [&#39;Moyamoya phenomenon&#39;],
+ [&#39;Abnormal cerebral artery morphology&#39;],
+ [&#39;Abnormality of the nervous system&#39;],
+ [&#39;Abnormal systemic arterial morphology&#39;],
+ [&#39;Abnormal cerebral vascular morphology&#39;],
+ [&#39;Abnormal blood vessel morphology&#39;],
+ [&#39;Abnormality of brain morphology&#39;],
+ [&#39;Abnormality of the vasculature&#39;],
+ [locstr(&#39;Abnormal vascular morphology&#39;, &#39;en&#39;)],
+ [&#39;Abnormality of the cardiovascular system&#39;],
+ [&#39;Abnormal nervous system morphology&#39;],
+ [&#39;Morphological central nervous system abnormality&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-all-descendants">
+<h2>Get all descendants<a class="headerlink" href="#get-all-descendants" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descendants</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;concept&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">descendants</span><span class="p">()</span>
+
+<span class="c1"># Descendants tends to return itself</span>
+<span class="p">[(</span><span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">descendants</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[([&#39;Moyamoya phenomenon&#39;], &#39;HP_0011834&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-all-subclasses">
+<h2>Get all Subclasses<a class="headerlink" href="#get-all-subclasses" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subclasses</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;concept&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">subclasses</span><span class="p">()</span>
+
+<span class="c1"># Descendants tends to return itself</span>
+<span class="p">[(</span><span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="things-to-note">
+<h2>Things to Note:<a class="headerlink" href="#things-to-note" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: actually returns a list of the synonyms related</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iri</span></code>: unique ID for this concept</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: concept ID, Even though this is an HPO term, sometimes ontologies can reference external ontologies as part of the “semantic web” reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xrefs</span></code>: Generally, <code class="docutils literal notranslate"><span class="pre">owlready2</span></code> has poor documentation, but it’s a single person(?) effort (and I never personally contributed) for not the most approachable field, so give him some slack. But the oddly named <code class="docutils literal notranslate"><span class="pre">.hasDbXref</span></code> returns a list of external cross-walks, which is one of the more useful things to know.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serialize_obo_subclass</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">subclasses</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;subclasses&#39;</span><span class="p">]</span> 
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subclasses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">item</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">serialized</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+            <span class="s2">&quot;iri&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">iri</span><span class="p">,</span>
+            <span class="s2">&quot;subclasses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">subclass</span><span class="o">.</span><span class="n">subclasses</span><span class="p">())],</span>
+            <span class="s2">&quot;xrefs&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">hasDbXref</span><span class="p">,</span>
+        <span class="p">}</span> <span class="k">for</span> <span class="n">subclass</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">serialized</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># serialized_result = [serialize_obo_subclass(item) for item in items]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="todo-visual-interface">
+<h1>TODO Visual Interface<a class="headerlink" href="#todo-visual-interface" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
@@ -462,11 +597,11 @@ document.write(`
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
-    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Name:N&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y:Q&#39;</span><span class="p">,</span>
+    <span class="c1"># tooltip=&#39;Name:N&#39;,</span>
     <span class="c1"># opacity=alt.condition(</span>
-    <span class="c1">#     alt.expr.test(alt.expr.regexp(search_input, &#39;i&#39;), alt.datum.Name),</span>
+    <span class="c1">#     alt.expr.test(alt.expr.regexp(search_input, &#39;i&#39;), alt.datum.all_labels),</span>
     <span class="c1">#     alt.value(1),</span>
     <span class="c1">#     alt.value(0.05)</span>
     <span class="c1"># )</span>
@@ -479,23 +614,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-15dcc8b90fe54e0ba1af73463df974e3.vega-embed {
+  #altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-15dcc8b90fe54e0ba1af73463df974e3.vega-embed details,
-  #altair-viz-15dcc8b90fe54e0ba1af73463df974e3.vega-embed details summary {
+  #altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028.vega-embed details,
+  #altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-15dcc8b90fe54e0ba1af73463df974e3"></div>
+<div id="altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-15dcc8b90fe54e0ba1af73463df974e3") {
-      outputDiv = document.getElementById("altair-viz-15dcc8b90fe54e0ba1af73463df974e3");
+    if (outputDiv.id !== "altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028") {
+      outputDiv = document.getElementById("altair-viz-46e14d6f1cb1415ab5cfdf5bf0b2e028");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -541,104 +676,9 @@ document.write(`
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "empty"}, "mark": {"type": "point", "size": 60}, "encoding": {"tooltip": {"field": "Name", "type": "nominal"}, "x": {"field": "Horsepower", "type": "quantitative"}, "y": {"field": "Miles_per_Gallon", "type": "quantitative"}}, "params": [{"name": "param_5", "bind": {"input": "search", "placeholder": "Search diseases/symtoms", "name": "Search "}, "value": ""}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"empty": [{}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "empty"}, "mark": {"type": "point", "size": 60}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "params": [{"name": "param_1", "bind": {"input": "search", "placeholder": "Diseases/symtoms", "name": "Search "}, "value": ""}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"empty": [{}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">obo_searcher</span><span class="p">(</span><span class="n">hpo</span><span class="p">,</span> <span class="n">search_term</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="results-dictionary-of-ontology-items">
-<h1>Results: Dictionary of Ontology items<a class="headerlink" href="#results-dictionary-of-ontology-items" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;subclasses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>obo.MONDO_0013696
-</pre></div>
-</div>
-</div>
-</div>
-<section id="check-one-concept">
-<h2>Check one concept<a class="headerlink" href="#check-one-concept" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;label&#39;: [&#39;Schizophrenia&#39;],
- &#39;iri&#39;: &#39;http://purl.obolibrary.org/obo/HP_0100753&#39;,
- &#39;name&#39;: &#39;HP_0100753&#39;,
- &#39;subclasses&#39;: [],
- &#39;xrefs&#39;: [&#39;MSH:D012559&#39;,
-  &#39;SNOMEDCT_US:191526005&#39;,
-  &#39;SNOMEDCT_US:58214004&#39;,
-  &#39;UMLS:C0036341&#39;]}
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="things-to-note">
-<h2>Things to Note:<a class="headerlink" href="#things-to-note" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: actually returns a list of the synonyms related</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">iri</span></code>: unique ID for this concept</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: concept ID, Even though this is an HPO term, sometimes ontologies can reference external ontologies as part of the “semantic web” reference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xrefs</span></code>: Generally, <code class="docutils literal notranslate"><span class="pre">owlready2</span></code> has poor documentation, but it’s a single person(?) effort (and I never personally contributed) for not the most approachable field, so give him some slack. But the oddly named <code class="docutils literal notranslate"><span class="pre">.hasDbXref</span></code> returns a list of external cross-walks, which is one of the more useful things to know.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serialize_obo_subclass</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="n">subclasses</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;subclasses&#39;</span><span class="p">]</span> 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subclasses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">item</span>
-    <span class="k">else</span><span class="p">:</span> 
-        <span class="n">serialized</span> <span class="o">=</span> <span class="p">[{</span>
-            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
-            <span class="s2">&quot;iri&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">iri</span><span class="p">,</span>
-            <span class="s2">&quot;subclasses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">subclass</span><span class="o">.</span><span class="n">subclasses</span><span class="p">())],</span>
-            <span class="s2">&quot;xrefs&quot;</span><span class="p">:</span> <span class="n">subclass</span><span class="o">.</span><span class="n">hasDbXref</span><span class="p">,</span>
-        <span class="p">}</span> <span class="k">for</span> <span class="n">subclass</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">serialized</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># serialized_result = [serialize_obo_subclass(item) for item in items]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serialized_result</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">37</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">serialized_result</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;serialized_result&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -709,12 +749,16 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Biomedical Ontologies: Owlready2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interface">Visual interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dictionary-of-ontology-items">Results: Dictionary of Ontology items</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-list-of-dictionary-of-ontology-concepts-and-metadata">Results: List of dictionary of ontology concepts and metadata</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-one-concept">Check one concept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-is-a-concepts">Get <code class="docutils literal notranslate"><span class="pre">is_a</span></code> concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-ancestors">Get all ancestors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-descendants">Get all descendants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-subclasses">Get all Subclasses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-note">Things to Note:</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-visual-interface">TODO Visual Interface</a></li>
 </ul>
 
   </nav></div>
