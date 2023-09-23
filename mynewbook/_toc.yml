@@ -16,9 +16,11 @@ parts:
   - caption: Data Poetry
     chapters:
     - file: data-poetry/polars.md
+    - file: data-poetry/owlready2_intro.ipynb
   - caption: Personal Analyses
     chapters:
     - file: personal-analysis/claims-denials.ipynb
+    - file: personal-analysis/mta_fun.ipynb
   - caption: References
     chapters:
     - file: references.md
