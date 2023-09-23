@@ -177,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Personal Analyses</span></p>
 <ul class="nav bd-sidenav">
@@ -351,6 +352,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-visual-interface">TODO Visual Interface</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-s-hard-to-work-with-python-objects">It’s hard to work with python objects</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-drive-it-out-with-bigger-use-case">Test Drive it out with bigger use case</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-what-i-had-in-mind">Not what I had in mind</a></li>
 </ul>
 
             </nav>
@@ -493,22 +495,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Moyamoya phenomenon&#39;],
- [&#39;Abnormal cerebral artery morphology&#39;],
- [locstr(&#39;Abnormal vascular morphology&#39;, &#39;en&#39;)],
- [&#39;Abnormality of the vasculature&#39;],
- [&#39;Abnormality of the cardiovascular system&#39;],
- [],
- [&#39;Abnormality of cardiovascular system morphology&#39;],
- [&#39;Abnormal cerebral vascular morphology&#39;],
- [&#39;Phenotypic abnormality&#39;],
- [&#39;Abnormality of brain morphology&#39;],
- [&#39;All&#39;],
- [&#39;Morphological central nervous system abnormality&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;All&#39;],
  [&#39;Abnormal nervous system morphology&#39;],
  [&#39;Abnormality of the nervous system&#39;],
  [&#39;Abnormal systemic arterial morphology&#39;],
- [&#39;Abnormal blood vessel morphology&#39;]]
+ [&#39;Abnormal blood vessel morphology&#39;],
+ [&#39;Moyamoya phenomenon&#39;],
+ [&#39;Abnormal cerebral artery morphology&#39;],
+ [locstr(&#39;Abnormal vascular morphology&#39;, &#39;en&#39;)],
+ [&#39;Abnormality of the vasculature&#39;],
+ [&#39;Abnormal cerebral vascular morphology&#39;],
+ [&#39;Abnormality of the cardiovascular system&#39;],
+ [&#39;Abnormality of brain morphology&#39;],
+ [&#39;Morphological central nervous system abnormality&#39;],
+ [&#39;Phenotypic abnormality&#39;],
+ [],
+ [&#39;Abnormality of cardiovascular system morphology&#39;]]
 </pre></div>
 </div>
 </div>
@@ -721,23 +723,23 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-5721e153f1614a31a933e33843b52dbb.vega-embed {
+  #altair-viz-635ae3881a204c28b03ebe83b83d3b1b.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-5721e153f1614a31a933e33843b52dbb.vega-embed details,
-  #altair-viz-5721e153f1614a31a933e33843b52dbb.vega-embed details summary {
+  #altair-viz-635ae3881a204c28b03ebe83b83d3b1b.vega-embed details,
+  #altair-viz-635ae3881a204c28b03ebe83b83d3b1b.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-5721e153f1614a31a933e33843b52dbb"></div>
+<div id="altair-viz-635ae3881a204c28b03ebe83b83d3b1b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5721e153f1614a31a933e33843b52dbb") {
-      outputDiv = document.getElementById("altair-viz-5721e153f1614a31a933e33843b52dbb");
+    if (outputDiv.id !== "altair-viz-635ae3881a204c28b03ebe83b83d3b1b") {
+      outputDiv = document.getElementById("altair-viz-635ae3881a204c28b03ebe83b83d3b1b");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -785,6 +787,148 @@ document.write(`
     }
   })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-821a917ba629671a418260d07d77b640"}, "mark": {"type": "rect", "size": 60}, "encoding": {"opacity": {"condition": {"test": "test(regexp(param_1,'i'),datum.label)", "value": 1}, "value": 0.05}, "x": {"aggregate": "count", "field": "synonyms", "type": "quantitative"}, "y": {"field": "label", "type": "nominal"}}, "params": [{"name": "param_1", "bind": {"input": "search", "placeholder": "Diseases/symtoms", "name": "Search "}, "value": ""}], "transform": [{"flatten": ["label"]}, {"flatten": ["synonyms"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-821a917ba629671a418260d07d77b640": [{"concept": "obo.HP_0000819", "label": ["Diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0000819", "synonyms": [], "name": "HP_0000819", "subclasses": ["obo.HP_0000831", "obo.HP_0001953", "obo.HP_0004904", "obo.HP_0005978", "obo.HP_0009800", "obo.HP_0100651"], "xrefs": ["MSH:D003920", "SNOMEDCT_US:73211009", "UMLS:C0011849"]}, {"concept": "obo.HP_0000831", "label": ["Insulin-resistant diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0000831", "synonyms": ["Insulin resistant diabetes", "Insulin resistant diabetes mellitus", "Insulin-resistant diabetes"], "name": "HP_0000831", "subclasses": ["obo.HP_0000857", "obo.HP_0000877"], "xrefs": ["UMLS:C0854110"]}, {"concept": "obo.HP_0000857", "label": ["Neonatal insulin-dependent diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0000857", "synonyms": [], "name": "HP_0000857", "subclasses": ["obo.HP_0008255"], "xrefs": ["UMLS:C3278636"]}, {"concept": "obo.HP_0000863", "label": ["Central diabetes insipidus"], "iri": "http://purl.obolibrary.org/obo/HP_0000863", "synonyms": ["Neurohypophyseal diabetes insipidus"], "name": "HP_0000863", "subclasses": [], "xrefs": ["MSH:D020790", "SNOMEDCT_US:45369008", "UMLS:C0687720"]}, {"concept": "obo.HP_0000873", "label": ["Diabetes insipidus"], "iri": "http://purl.obolibrary.org/obo/HP_0000873", "synonyms": [], "name": "HP_0000873", "subclasses": ["obo.HP_0000863", "obo.HP_0009806"], "xrefs": ["MSH:D003919", "SNOMEDCT_US:15771004", "UMLS:C0011848"]}, {"concept": "obo.HP_0000877", "label": ["Insulin-resistant diabetes mellitus at puberty"], "iri": "http://purl.obolibrary.org/obo/HP_0000877", "synonyms": ["Insulin-resistant diabetes mellitus at puberty"], "name": "HP_0000877", "subclasses": [], "xrefs": ["UMLS:C1837792"]}, {"concept": "obo.HP_0004904", "label": ["Maturity-onset diabetes of the young"], "iri": "http://purl.obolibrary.org/obo/HP_0004904", "synonyms": ["Maturity onset diabetes of the young"], "name": "HP_0004904", "subclasses": [], "xrefs": ["MSH:C562772", "SNOMEDCT_US:609561005", "UMLS:C0342276"]}, {"concept": "obo.HP_0005978", "label": ["Type II diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0005978", "synonyms": ["Diabetes mellitus Type II", "Diabetes mellitus, noninsulin-dependent", "NIDDM", "NIDDM diabetes mellitus", "Non-insulin dependent diabetes", "Noninsulin dependent diabetes mellitus", "Noninsulin-dependent diabetes", "Type 2 diabetes", "Type II diabetes"], "name": "HP_0005978", "subclasses": ["obo.HP_0008205"], "xrefs": ["MSH:D003924", "SNOMEDCT_US:44054006", "UMLS:C0011860"]}, {"concept": "obo.HP_0008205", "label": ["Insulin-dependent but ketosis-resistant diabetes"], "iri": "http://purl.obolibrary.org/obo/HP_0008205", "synonyms": [], "name": "HP_0008205", "subclasses": [], "xrefs": ["UMLS:C1842404"]}, {"concept": "obo.HP_0008255", "label": ["Transient neonatal diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0008255", "synonyms": [], "name": "HP_0008255", "subclasses": [], "xrefs": ["SNOMEDCT_US:237603002", "UMLS:C0342273"]}, {"concept": "obo.HP_0009800", "label": ["Maternal diabetes"], "iri": "http://purl.obolibrary.org/obo/HP_0009800", "synonyms": ["Maternal diabetes", "gestational diabetes"], "name": "HP_0009800", "subclasses": [], "xrefs": ["MSH:D016640", "SNOMEDCT_US:11687002", "UMLS:C0085207", "UMLS:C4020778"]}, {"concept": "obo.HP_0009806", "label": ["Nephrogenic diabetes insipidus"], "iri": "http://purl.obolibrary.org/obo/HP_0009806", "synonyms": [], "name": "HP_0009806", "subclasses": [], "xrefs": ["MSH:D018500", "SNOMEDCT_US:111395007", "UMLS:C0162283"]}, {"concept": "obo.HP_0100651", "label": ["Type I diabetes mellitus"], "iri": "http://purl.obolibrary.org/obo/HP_0100651", "synonyms": ["Diabetes mellitus Type I", "Juvenile diabetes mellitus", "Type 1 diabetes", "Type I diabetes"], "name": "HP_0100651", "subclasses": [], "xrefs": ["MSH:D003922", "SNOMEDCT_US:46635009", "UMLS:C0011854"]}]}}, {"mode": "vega-lite"});
 </script></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="not-what-i-had-in-mind">
+<h1>Not what I had in mind<a class="headerlink" href="#not-what-i-had-in-mind" title="Permalink to this heading">#</a></h1>
+<p>But Cool nontheless</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">sanitized_results</span> <span class="o">=</span> <span class="n">sanitize_results</span><span class="p">(</span><span class="n">obo_searcher</span><span class="p">(</span><span class="n">hpo</span><span class="p">,</span> <span class="s2">&quot;bipolar disorder&quot;</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">from_dicts</span><span class="p">(</span><span class="n">sanitized_results</span><span class="p">)</span>
+
+
+<span class="n">search_input</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span>
+    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">bind</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">binding</span><span class="p">(</span>
+        <span class="nb">input</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span>
+        <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;Diseases/symptoms&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Search &#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="c1"># x=alt.value(20),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;synonyms:N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">domainWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;synonyms:N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+    <span class="c1"># tooltip=&#39;Name:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_flatten</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;synonyms&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
+    <span class="n">label_count</span><span class="o">=</span><span class="s1">&#39;count(synonyms)&#39;</span><span class="p">,</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;synonyms&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rank</span><span class="o">=</span><span class="s1">&#39;rank(synonyms)&#39;</span><span class="p">,</span>
+    <span class="n">sort</span><span class="o">=</span><span class="p">[</span><span class="n">alt</span><span class="o">.</span><span class="n">SortField</span><span class="p">(</span><span class="s1">&#39;synonyms&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">rank</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span><span class="n">search_input</span><span class="p">)</span>
+
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">cornerRadius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="n">search_input</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">label</span><span class="p">),</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Opacity</span><span class="p">(</span><span class="s2">&quot;rank:Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
+  <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+  <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+  <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+  <span class="n">dy</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span><span class="n">search_input</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">+</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-7d9daca9c78f4a2cb560f283884b418b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-7d9daca9c78f4a2cb560f283884b418b.vega-embed details,
+  #altair-viz-7d9daca9c78f4a2cb560f283884b418b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-7d9daca9c78f4a2cb560f283884b418b"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7d9daca9c78f4a2cb560f283884b418b") {
+      outputDiv = document.getElementById("altair-viz-7d9daca9c78f4a2cb560f283884b418b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rect", "cornerRadius": 5, "height": 25, "width": 150}, "encoding": {"opacity": {"condition": {"test": "test(regexp(param_2,'i'),datum.label)", "field": "rank", "legend": null, "type": "quantitative"}, "value": 0.05}, "text": {"field": "synonyms", "title": null, "type": "nominal"}, "y": {"axis": {"labels": false, "ticks": false, "grid": false, "domainWidth": 0}, "field": "synonyms", "title": null, "type": "nominal"}}, "transform": [{"flatten": ["synonyms"]}, {"aggregate": [{"op": "count", "field": "synonyms", "as": "label_count"}], "groupby": ["synonyms"]}, {"window": [{"op": "rank", "field": "synonyms", "as": "rank"}], "sort": [{"field": "synonyms", "order": "descending"}]}, {"filter": "(datum.rank < 20)"}]}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dx": 0, "dy": 0}, "encoding": {"text": {"field": "synonyms", "title": null, "type": "nominal"}, "y": {"axis": {"labels": false, "ticks": false, "grid": false, "domainWidth": 0}, "field": "synonyms", "title": null, "type": "nominal"}}, "transform": [{"flatten": ["synonyms"]}, {"aggregate": [{"op": "count", "field": "synonyms", "as": "label_count"}], "groupby": ["synonyms"]}, {"window": [{"op": "rank", "field": "synonyms", "as": "rank"}], "sort": [{"field": "synonyms", "order": "descending"}]}, {"filter": "(datum.rank < 20)"}]}], "data": {"name": "data-d5675c0330d1212cbae4754ac4a59d26"}, "params": [{"name": "param_2", "bind": {"input": "search", "placeholder": "Diseases/symptoms", "name": "Search "}, "value": ""}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-d5675c0330d1212cbae4754ac4a59d26": [{"concept": "obo.NBO_0000258", "label": ["bipolar disorder"], "iri": "http://purl.obolibrary.org/obo/NBO_0000258", "synonyms": ["BD", "bipolar affective disorder", "manic depression"], "name": "NBO_0000258", "subclasses": [], "xrefs": []}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr > th,
+.dataframe > tbody > tr > td {
+  text-align: right;
+}
+</style>
+<small>shape: (1, 7)</small><table border="1" class="dataframe"><thead><tr><th>concept</th><th>label</th><th>iri</th><th>synonyms</th><th>name</th><th>subclasses</th><th>xrefs</th></tr><tr><td>str</td><td>list[str]</td><td>str</td><td>list[str]</td><td>str</td><td>list[null]</td><td>list[null]</td></tr></thead><tbody><tr><td>&quot;obo.NBO_000025…</td><td>[&quot;bipolar disorder&quot;]</td><td>&quot;http://purl.ob…</td><td>[&quot;BD&quot;, &quot;bipolar affective disorder&quot;, &quot;manic depression&quot;]</td><td>&quot;NBO_0000258&quot;</td><td>[]</td><td>[]</td></tr></tbody></table></div></div></div>
 </div>
 </section>
 
@@ -868,6 +1012,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-visual-interface">TODO Visual Interface</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-s-hard-to-work-with-python-objects">It’s hard to work with python objects</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-drive-it-out-with-bigger-use-case">Test Drive it out with bigger use case</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-what-i-had-in-mind">Not what I had in mind</a></li>
 </ul>
 
   </nav></div>
