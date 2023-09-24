@@ -32,9 +32,9 @@ Here is a preview of the cell contents:
 -------------------
 import owlready2
 
-hpo = owlready2.get_ontology("http://purl.obolibrary.org/obo/hp.owl").load()
-# mondo = owlready2.get_ontology("http://purl.obolibrary.org/obo/mondo.owl").load()
-efo = owlready2.get_ontology("http://www.ebi.ac.uk/efo/efo.owl").load()
-
+hpo = owlready2.get_ontology("data/hp.owl").load()
+# mondo = owlready2.get_ontology("data/mondo.owl").load()
+efo = owlready2.get_ontology("data/efo.owl").load()
+mfo = owlready2.get_ontology("data/MFOMD.owl").load()
 -------------------
 

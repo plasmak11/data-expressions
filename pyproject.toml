@@ -1,32 +1,3 @@
-[tool.poetry]
-name = "data-expressions"
-version = "0.1.0"
-description = ""
-authors = ["Jung Hoon Son <junghoonson@protonmail.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-polars = "^0.18.15"
-jupyter-book = "^0.15.1"
-ghp-import = "^2.1.0"
-vega-datasets = "^0.9.0"
-ipykernel = "^6.25.1"
-altair = "^5.0.1"
-plotly = "^5.16.1"
-pip = "^23.2.1"
-install = "^1.3.5"
-pydata-sphinx-theme = "^0.13.3"
-sphinx-multitoc-numbering = "^0.1.3"
-pyarrow = "^13.0.0"
-openai = "0.27.8"
-tqdm = "^4.66.1"
-xlsx2csv = "^0.8.1"
-openpyxl = "^3.1.2"
-open-interpreter = "^0.1.4"
-owlready2 = "^0.44"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+version https://git-lfs.github.com/spec/v1
+oid sha256:5721385a04b80dc2c2630b128fbfe656d3e7803e07aea371dfd625c58df6f602
+size 682
