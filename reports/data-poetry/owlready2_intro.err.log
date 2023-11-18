@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 182, in ensure_async
-    result = await obj
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/jupyter_client/channels.py", line 315, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
@@ -20,21 +9,35 @@ Traceback (most recent call last):
     return future.result()
   File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1001, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
+  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
 import owlready2
 
 hpo = owlready2.get_ontology("data/hp.owl").load()
 # mondo = owlready2.get_ontology("data/mondo.owl").load()
 efo = owlready2.get_ontology("data/efo.owl").load()
 mfo = owlready2.get_ontology("data/MFOMD.owl").load()
--------------------
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[1], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mowlready2[39;00m
+[0;32m----> 3[0m hpo [38;5;241m=[39m [43mowlready2[49m[38;5;241;43m.[39;49m[43mget_ontology[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdata/hp.owl[39;49m[38;5;124;43m"[39;49m[43m)[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[43m)[49m
+[1;32m      4[0m [38;5;66;03m# mondo = owlready2.get_ontology("data/mondo.owl").load()[39;00m
+[1;32m      5[0m efo [38;5;241m=[39m owlready2[38;5;241m.[39mget_ontology([38;5;124m"[39m[38;5;124mdata/efo.owl[39m[38;5;124m"[39m)[38;5;241m.[39mload()
+
+File [0;32m~/.cache/pypoetry/virtualenvs/data-expressions-XOHyUNvQ-py3.10/lib/python3.10/site-packages/owlready2/namespace.py:988[0m, in [0;36mOntology.load[0;34m(self, only_local, fileobj, reload, reload_if_newer, url, **args)[0m
+[1;32m    986[0m [38;5;28;01mif[39;00m reload [38;5;129;01mor[39;00m ([38;5;28mself[39m[38;5;241m.[39mgraph[38;5;241m.[39mget_last_update_time() [38;5;241m==[39m [38;5;241m0.0[39m):
+[1;32m    987[0m   [38;5;28;01mif[39;00m _LOG_LEVEL: [38;5;28mprint[39m([38;5;124m"[39m[38;5;124m* Owlready2 *     ...loading ontology [39m[38;5;132;01m%s[39;00m[38;5;124m from [39m[38;5;132;01m%s[39;00m[38;5;124m...[39m[38;5;124m"[39m [38;5;241m%[39m ([38;5;28mself[39m[38;5;241m.[39mname, f), file [38;5;241m=[39m sys[38;5;241m.[39mstderr)
+[0;32m--> 988[0m   fileobj [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m    989[0m   [38;5;28;01mtry[39;00m:     new_base_iri [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mgraph[38;5;241m.[39mparse(fileobj, default_base [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_orig_base_iri, [38;5;241m*[39m[38;5;241m*[39margs)
+[1;32m    990[0m   [38;5;28;01mfinally[39;00m: fileobj[38;5;241m.[39mclose()
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/hp.owl'
 
