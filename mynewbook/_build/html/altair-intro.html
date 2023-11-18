@@ -176,6 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Personal Analyses</span></p>
 <ul class="nav bd-sidenav">
@@ -395,28 +397,28 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c.vega-embed {
+  #altair-viz-e4e70d84a533493287bbf6e14b8bbf94.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c.vega-embed details,
-  #altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c.vega-embed details summary {
+  #altair-viz-e4e70d84a533493287bbf6e14b8bbf94.vega-embed details,
+  #altair-viz-e4e70d84a533493287bbf6e14b8bbf94.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c"></div>
+<div id="altair-viz-e4e70d84a533493287bbf6e14b8bbf94"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c") {
-      outputDiv = document.getElementById("altair-viz-f9ef8e23ed7e4af6a1f7f94b3e676e8c");
+    if (outputDiv.id !== "altair-viz-e4e70d84a533493287bbf6e14b8bbf94") {
+      outputDiv = document.getElementById("altair-viz-e4e70d84a533493287bbf6e14b8bbf94");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
       "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
       "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
@@ -452,12 +454,12 @@ document.write(`
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axisX": {"grid": false}, "axisY": {"domain": false, "offset": 10, "ticks": false}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/disasters.csv"}, "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeOpacity": 0.4, "strokeWidth": 1}, "encoding": {"color": {"field": "Entity", "legend": null, "type": "nominal"}, "size": {"field": "Deaths", "legend": {"clipHeight": 30, "format": "s", "title": "Deaths"}, "scale": {"range": [0, 2500]}, "type": "quantitative"}, "tooltip": [{"field": "Entity", "type": "nominal"}, {"field": "Year", "format": "%Y", "type": "temporal"}, {"field": "Deaths", "format": "~s", "type": "quantitative"}], "x": {"field": "Year", "scale": {"domain": ["1899", "2018"]}, "title": null, "type": "temporal"}, "y": {"field": "Entity", "sort": {"field": "Deaths", "op": "sum", "order": "descending"}, "title": null, "type": "nominal"}}, "height": 320, "title": {"text": "Global Deaths from Natural Disasters (1900-2017)", "anchor": "start", "subtitle": "The size of the bubble represents the total death count per year, by type of disaster"}, "transform": [{"filter": "(datum.Entity !== 'All natural disasters')"}], "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </section>

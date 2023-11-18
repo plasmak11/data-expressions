@@ -21,6 +21,7 @@ parts:
     chapters:
     - file: personal-analysis/claims-denials.ipynb
     - file: personal-analysis/mta_fun.ipynb
+    - file: personal-analysis/buttonize_altair.ipynb
   - caption: References
     chapters:
     - file: references.md
